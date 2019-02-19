@@ -21,7 +21,14 @@
       "additionalProperties": false,
       "properties": {
         "suggestionsQuery": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "aggregatedCount": {
           "type": "integer"
@@ -58,8 +65,14 @@
           "type": "integer"
         },
         "searchUuid": {
-          "type": "string",
-          "format": "uuid"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "offersSerialized": {
           "type": "array",
@@ -81,7 +94,6 @@
         "offerCount",
         "offersSerialized",
         "queryString",
-        "searchUuid",
         "seoData",
         "suggestionsQuery",
         "top3IsOn"
@@ -1355,10 +1367,17 @@
           ]
         },
         "priceChanges": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PriceChange"
-          }
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PriceChange"
+              }
+            }
+          ]
         },
         "businessShoppingCenter": {
           "anyOf": [
@@ -3155,7 +3174,12 @@
                   "type": "null"
                 },
                 {
-                  "type": "string"
+                  "type": "string",
+                  "enum": [
+                    "forAgriculturalPurposes",
+                    "industryTransportCommunications",
+                    "settlements"
+                  ]
                 }
               ]
             },
@@ -3172,7 +3196,8 @@
             "areaUnitType": {
               "anyOf": [
                 {
-                  "$ref": "#/definitions/AreaUnitType"
+                  "type": "string",
+                  "enum": ["hectare", "sotka"]
                 },
                 {
                   "type": "null"
