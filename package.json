@@ -1,0 +1,16 @@
+{
+  "name": "cian",
+  "version": "0.0.1",
+  "description": "cian crawler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "$(npm bin)/prettier --write response.json",
+    "format2": "$(npm bin)/prettier --write response2.json"
+  },
+  "author": "Bazys",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  }
+}

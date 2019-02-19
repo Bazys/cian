@@ -1,0 +1,3125 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Cian",
+  "definitions": {
+    "Cian": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Data"
+        }
+      },
+      "required": ["data", "status"],
+      "title": "Cian"
+    },
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "suggestionsQuery": {
+          "type": "string"
+        },
+        "aggregatedCount": {
+          "type": "integer"
+        },
+        "queryString": {
+          "type": "string"
+        },
+        "isNewobjectsEnabled": {
+          "type": "boolean"
+        },
+        "isCallButtonEnabled": {
+          "type": "boolean"
+        },
+        "mlRankingGuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "breadcrumbs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Breadcrumb"
+          }
+        },
+        "top3IsOn": {
+          "type": "boolean"
+        },
+        "seoData": {
+          "$ref": "#/definitions/SEOData"
+        },
+        "offerCount": {
+          "type": "integer"
+        },
+        "mlRankingModelVersion": {
+          "type": "null"
+        },
+        "kp": {
+          "type": "null"
+        },
+        "avgPriceInformer": {
+          "type": "null"
+        },
+        "callButtonVariant": {
+          "type": "integer"
+        },
+        "searchUuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "newobjectsSerialized": {
+          "type": "array",
+          "items": {}
+        },
+        "offersSerialized": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OffersSerialized"
+          }
+        },
+        "jsonQuery": {
+          "$ref": "#/definitions/JSONQuery"
+        }
+      },
+      "required": [
+        "aggregatedCount",
+        "avgPriceInformer",
+        "breadcrumbs",
+        "callButtonVariant",
+        "isCallButtonEnabled",
+        "isNewobjectsEnabled",
+        "jsonQuery",
+        "kp",
+        "mlRankingGuid",
+        "mlRankingModelVersion",
+        "newobjectsSerialized",
+        "offerCount",
+        "offersSerialized",
+        "queryString",
+        "searchUuid",
+        "seoData",
+        "suggestionsQuery",
+        "top3IsOn"
+      ],
+      "title": "Data"
+    },
+    "Breadcrumb": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https", "http"]
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["title", "url"],
+      "title": "Breadcrumb"
+    },
+    "JSONQuery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "region": {
+          "$ref": "#/definitions/OfficeType"
+        },
+        "_type": {
+          "$ref": "#/definitions/TypeEnum"
+        },
+        "office_type": {
+          "$ref": "#/definitions/OfficeType"
+        },
+        "engine_version": {
+          "$ref": "#/definitions/EngineVersion"
+        }
+      },
+      "required": ["_type", "engine_version", "office_type", "region"],
+      "title": "JSONQuery"
+    },
+    "EngineVersion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/EngineVersionType"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": ["type", "value"],
+      "title": "EngineVersion"
+    },
+    "OfficeType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/OfficeTypeType"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["type", "value"],
+      "title": "OfficeType"
+    },
+    "OffersSerialized": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "taxNumber": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasPhone": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "newbuilding": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Newbuilding"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasHairdryer": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "roomType": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "drainageType": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "furniturePresence": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "hasFurniture": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasConditioner": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shareAmount": {
+          "type": "null"
+        },
+        "pricePerUnitAreaPerYearRurForSearch": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "archivedDate": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "layout": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Layout"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "settlementName": {
+          "type": "null"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "electricity": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Electricity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "workTimeInfo": {
+          "type": "null"
+        },
+        "minPriceTotal": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allFromOffrep": {
+          "type": "null"
+        },
+        "platform": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Platform"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasExtinguishingSystem": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "electricityPower": {
+          "type": "null"
+        },
+        "garage": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Garage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "chatId": {
+          "type": "null"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "priceTotalRur": {
+          "type": "integer"
+        },
+        "descriptionMinhash": {
+          "type": "string"
+        },
+        "hasPool": {
+          "type": "null"
+        },
+        "gaLabel": {
+          "type": "string"
+        },
+        "totalArea": {
+          "type": "string"
+        },
+        "leisure": {
+          "type": "null"
+        },
+        "pricePerUnitArea": {
+          "type": "integer"
+        },
+        "separateWcsCount": {
+          "type": "null"
+        },
+        "propertyType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/PropertyType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "drainageCapacity": {
+          "type": "null"
+        },
+        "geo": {
+          "$ref": "#/definitions/OffersSerializedGeo"
+        },
+        "furniture": {
+          "type": "null"
+        },
+        "allRoomsArea": {
+          "type": "null"
+        },
+        "demandJsonQuery": {
+          "$ref": "#/definitions/DemandJSONQuery"
+        },
+        "isPaid": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "null"
+        },
+        "notes": {
+          "$ref": "#/definitions/Notes"
+        },
+        "childrenAllowed": {
+          "type": "null"
+        },
+        "pricePerUnitAreaPerYearRur": {
+          "type": "null"
+        },
+        "hasCheckIn_24": {
+          "type": "null"
+        },
+        "minVatPriceTotalPerMonthRur": {
+          "type": "null"
+        },
+        "demolishedInMoscowProgramm": {
+          "type": "null"
+        },
+        "permittedUseType": {
+          "type": "null"
+        },
+        "drainage": {
+          "type": "null"
+        },
+        "minVatPriceTotalRur": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "floorMaterialType": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "vasType": {
+          "type": "null"
+        },
+        "priceTotalUsd": {
+          "type": "integer"
+        },
+        "rosreestrCheck": {
+          "type": "null"
+        },
+        "hasLift": {
+          "type": "null"
+        },
+        "phones": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Phone"
+          }
+        },
+        "floorNumber": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minArea": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "hasInvestmentProject": {
+          "type": "null"
+        },
+        "statistic": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Statistic"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pricePerUnitAreaUsd": {
+          "type": "integer"
+        },
+        "hasTransportServices": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pricePerUnitAreaRur": {
+          "type": "integer"
+        },
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "roomArea": {
+          "type": "null"
+        },
+        "hasShower": {
+          "type": "null"
+        },
+        "isColorized": {
+          "type": "boolean"
+        },
+        "isHiddenByUser": {
+          "type": "boolean"
+        },
+        "bedroomsCount": {
+          "type": "null"
+        },
+        "minPriceTotalRur": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "priceTotalPerMonth": {
+          "type": "null"
+        },
+        "externalId": {
+          "type": "null"
+        },
+        "isOccupied": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "externalUrl": {
+          "type": "null"
+        },
+        "hasDishwasher": {
+          "type": "null"
+        },
+        "booking": {
+          "type": "null"
+        },
+        "priceTotalEur": {
+          "type": "integer"
+        },
+        "hasWiredInternet": {
+          "type": "null"
+        },
+        "additionalPhoneLinesAllowed": {
+          "type": "null"
+        },
+        "isTop3": {
+          "type": "boolean"
+        },
+        "possibleToChangePermittedUseType": {
+          "type": "null"
+        },
+        "priceTotalPerMonthUsd": {
+          "type": "null"
+        },
+        "water": {
+          "type": "null"
+        },
+        "petsAllowed": {
+          "type": "null"
+        },
+        "electricityType": {
+          "type": "null"
+        },
+        "hasFridge": {
+          "type": "null"
+        },
+        "roomsArea": {
+          "type": "null"
+        },
+        "maxArea": {
+          "type": "null"
+        },
+        "hasTransfer": {
+          "type": "null"
+        },
+        "publishTerms": {
+          "$ref": "#/definitions/PublishTerms"
+        },
+        "minPriceTotalPerMonth": {
+          "type": "null"
+        },
+        "isEnabledCallTracking": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "minPriceTotalRurForSearch": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gasType": {
+          "type": "null"
+        },
+        "hasHeating": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cplModeration": {
+          "type": "null"
+        },
+        "waterCapacity": {
+          "type": "null"
+        },
+        "flatType": {
+          "type": "null"
+        },
+        "hasJacuzzi": {
+          "type": "null"
+        },
+        "placementType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/PlacementType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isFairplay": {
+          "type": "boolean"
+        },
+        "gasPressure": {
+          "type": "null"
+        },
+        "hasParking": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rentByPartsDescription": {
+          "type": "null"
+        },
+        "hasInternet": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "conditionRatingType": {
+          "type": "null"
+        },
+        "pricePerUnitAreaPerMonthRurForSearch": {
+          "type": "null"
+        },
+        "categoriesIds": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "minPriceTotalPerMonthRur": {
+          "type": "null"
+        },
+        "feedboxMultiOfferKey": {
+          "type": "null"
+        },
+        "hasBathhouse": {
+          "type": "null"
+        },
+        "hasEncumbrances": {
+          "type": "null"
+        },
+        "kitchenArea": {
+          "type": "null"
+        },
+        "isLegalAddressProvided": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "videos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Video"
+          }
+        },
+        "isFavorite": {
+          "type": "boolean"
+        },
+        "pricePerUnitAreaPerMonth": {
+          "type": "null"
+        },
+        "windowsViewType": {
+          "type": "null"
+        },
+        "hasWasher": {
+          "type": "null"
+        },
+        "gasCapacity": {
+          "type": "null"
+        },
+        "cianId": {
+          "type": "integer"
+        },
+        "withoutClientFee": {
+          "type": "null"
+        },
+        "pricePerUnitAreaPerYearEur": {
+          "type": "null"
+        },
+        "cianUserId": {
+          "type": "integer"
+        },
+        "phoneLinesCount": {
+          "type": "null"
+        },
+        "isRentByParts": {
+          "type": "boolean"
+        },
+        "loggiasCount": {
+          "type": "null"
+        },
+        "hasSecurity": {
+          "type": "null"
+        },
+        "pricePerUnitAreaPerYearUsd": {
+          "type": "null"
+        },
+        "isCustoms": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "priceChanges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PriceChange"
+          }
+        },
+        "businessShoppingCenter": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/BusinessShoppingCenter"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gas": {
+          "type": "null"
+        },
+        "specialty": {
+          "$ref": "#/definitions/OffersSerializedSpecialty"
+        },
+        "pricePerUnitAreaPerYear": {
+          "type": "null"
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Photo"
+          }
+        },
+        "hasShopWindows": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "roomsForSaleCount": {
+          "type": "null"
+        },
+        "isPenthouse": {
+          "type": "null"
+        },
+        "hasEquipment": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isAuction": {
+          "type": "boolean"
+        },
+        "offerType": {
+          "$ref": "#/definitions/OfferType"
+        },
+        "isNew": {
+          "type": "boolean"
+        },
+        "vatPriceTotalRur": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "editDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "priceTotalPerMonthEur": {
+          "type": "null"
+        },
+        "objectGuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "wcLocationType": {
+          "type": "null"
+        },
+        "hasLight": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isFromBuilder": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "repairType": {
+          "type": "null"
+        },
+        "valueAddedServices": {
+          "$ref": "#/definitions/ValueAddedServices"
+        },
+        "hasSecondedDocs": {
+          "type": "null"
+        },
+        "dealType": {
+          "$ref": "#/definitions/DealTypeEnum"
+        },
+        "similar": {
+          "type": "null"
+        },
+        "hasDrainage": {
+          "type": "null"
+        },
+        "priceTotalRurForSearch": {
+          "type": "integer"
+        },
+        "priceTotalPerMonthRur": {
+          "type": "null"
+        },
+        "hasKitchenFurniture": {
+          "type": "null"
+        },
+        "isByHomeowner": {
+          "type": "null"
+        },
+        "hasTv": {
+          "type": "null"
+        },
+        "drivewayType": {
+          "type": "null"
+        },
+        "minPriceTotalPerMonthRurForSearch": {
+          "type": "null"
+        },
+        "jkUrl": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "qt-uri-protocols": ["https"]
+            }
+          ]
+        },
+        "layoutPhoto": {
+          "type": "null"
+        },
+        "decoration": {
+          "type": "null"
+        },
+        "hasTeaCoffeeSugar": {
+          "type": "null"
+        },
+        "hasElectricity": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pricePerUnitAreaEur": {
+          "type": "integer"
+        },
+        "callTrackingProvider": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CallTrackingProvider"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inputType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/InputType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasBathtub": {
+          "type": "null"
+        },
+        "hasWifi": {
+          "type": "null"
+        },
+        "conditionType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ConditionType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "waterType": {
+          "type": "null"
+        },
+        "hasGarage": {
+          "type": "null"
+        },
+        "canParts": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hasExcursions": {
+          "type": "null"
+        },
+        "accessType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AccessTypeEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isDuplicatedDescription": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "pricePerUnitAreaPerMonthRur": {
+          "type": "null"
+        },
+        "hasGas": {
+          "type": "null"
+        },
+        "estateType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/EstateTypeEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projectDeclarationUrl": {
+          "type": "null"
+        },
+        "isApartments": {
+          "type": "null"
+        },
+        "hasIron": {
+          "type": "null"
+        },
+        "hasWater": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "availableFrom": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isPremium": {
+          "type": "boolean"
+        },
+        "added": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priceTotalPerMonthRurForSearch": {
+          "type": "null"
+        },
+        "isInHiddenBase": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pricePerUnitAreaRurForSearch": {
+          "type": "integer"
+        },
+        "monthlyIncome": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/MonthlyIncome"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "district": {
+          "type": "null"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "bargainTerms": {
+          "$ref": "#/definitions/BargainTerms"
+        },
+        "fromDeveloper": {
+          "type": "null"
+        },
+        "hasSafeCustody": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "balconiesCount": {
+          "type": "null"
+        },
+        "building": {
+          "$ref": "#/definitions/Building"
+        },
+        "land": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Land"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "livingArea": {
+          "type": "null"
+        },
+        "publishedUserId": {
+          "type": "integer"
+        },
+        "bedsCount": {
+          "type": "null"
+        },
+        "waterPipesCount": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "vatPriceTotalPerMonthRur": {
+          "type": "null"
+        },
+        "wcType": {
+          "type": "null"
+        },
+        "kp": {
+          "type": "null"
+        },
+        "flags": {
+          "$ref": "#/definitions/Flags"
+        },
+        "hasRamp": {
+          "type": "null"
+        },
+        "promoInfo": {
+          "type": "null"
+        },
+        "roomsCount": {
+          "type": "null"
+        },
+        "priceTotal": {
+          "type": "integer"
+        },
+        "combinedWcsCount": {
+          "type": "null"
+        },
+        "isPro": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "accessType",
+        "added",
+        "additionalPhoneLinesAllowed",
+        "allFromOffrep",
+        "allRoomsArea",
+        "archivedDate",
+        "availableFrom",
+        "balconiesCount",
+        "bargainTerms",
+        "bedroomsCount",
+        "bedsCount",
+        "booking",
+        "building",
+        "businessShoppingCenter",
+        "callTrackingProvider",
+        "canParts",
+        "categoriesIds",
+        "category",
+        "chatId",
+        "childrenAllowed",
+        "cianId",
+        "cianUserId",
+        "combinedWcsCount",
+        "conditionRatingType",
+        "conditionType",
+        "cplModeration",
+        "dealType",
+        "decoration",
+        "demandJsonQuery",
+        "demolishedInMoscowProgramm",
+        "description",
+        "descriptionMinhash",
+        "district",
+        "drainage",
+        "drainageCapacity",
+        "drainageType",
+        "drivewayType",
+        "editDate",
+        "electricity",
+        "electricityPower",
+        "electricityType",
+        "estateType",
+        "externalId",
+        "externalUrl",
+        "feedboxMultiOfferKey",
+        "flags",
+        "flatType",
+        "floorMaterialType",
+        "floorNumber",
+        "fromDeveloper",
+        "furniture",
+        "furniturePresence",
+        "gaLabel",
+        "garage",
+        "gas",
+        "gasCapacity",
+        "gasPressure",
+        "gasType",
+        "geo",
+        "hasBathhouse",
+        "hasBathtub",
+        "hasCheckIn_24",
+        "hasConditioner",
+        "hasDishwasher",
+        "hasDrainage",
+        "hasElectricity",
+        "hasEncumbrances",
+        "hasEquipment",
+        "hasExcursions",
+        "hasExtinguishingSystem",
+        "hasFridge",
+        "hasFurniture",
+        "hasGarage",
+        "hasGas",
+        "hasHairdryer",
+        "hasHeating",
+        "hasInternet",
+        "hasInvestmentProject",
+        "hasIron",
+        "hasJacuzzi",
+        "hasKitchenFurniture",
+        "hasLift",
+        "hasLight",
+        "hasParking",
+        "hasPhone",
+        "hasPool",
+        "hasRamp",
+        "hasSafeCustody",
+        "hasSecondedDocs",
+        "hasSecurity",
+        "hasShopWindows",
+        "hasShower",
+        "hasTeaCoffeeSugar",
+        "hasTransfer",
+        "hasTransportServices",
+        "hasTv",
+        "hasWasher",
+        "hasWater",
+        "hasWifi",
+        "hasWiredInternet",
+        "id",
+        "inputType",
+        "isApartments",
+        "isAuction",
+        "isByHomeowner",
+        "isColorized",
+        "isCustoms",
+        "isDuplicatedDescription",
+        "isEnabledCallTracking",
+        "isFairplay",
+        "isFavorite",
+        "isFromBuilder",
+        "isHiddenByUser",
+        "isInHiddenBase",
+        "isLegalAddressProvided",
+        "isNew",
+        "isOccupied",
+        "isPaid",
+        "isPenthouse",
+        "isPremium",
+        "isRentByParts",
+        "isTop3",
+        "jkUrl",
+        "kitchenArea",
+        "kp",
+        "land",
+        "layout",
+        "layoutPhoto",
+        "leisure",
+        "livingArea",
+        "loggiasCount",
+        "maxArea",
+        "minArea",
+        "minPriceTotal",
+        "minPriceTotalPerMonth",
+        "minPriceTotalPerMonthRur",
+        "minPriceTotalPerMonthRurForSearch",
+        "minPriceTotalRur",
+        "minPriceTotalRurForSearch",
+        "minVatPriceTotalPerMonthRur",
+        "minVatPriceTotalRur",
+        "monthlyIncome",
+        "name",
+        "newbuilding",
+        "notes",
+        "objectGuid",
+        "offerType",
+        "permittedUseType",
+        "petsAllowed",
+        "phoneLinesCount",
+        "phones",
+        "photos",
+        "placementType",
+        "platform",
+        "possibleToChangePermittedUseType",
+        "priceChanges",
+        "pricePerUnitArea",
+        "pricePerUnitAreaEur",
+        "pricePerUnitAreaPerMonth",
+        "pricePerUnitAreaPerMonthRur",
+        "pricePerUnitAreaPerMonthRurForSearch",
+        "pricePerUnitAreaPerYear",
+        "pricePerUnitAreaPerYearEur",
+        "pricePerUnitAreaPerYearRur",
+        "pricePerUnitAreaPerYearRurForSearch",
+        "pricePerUnitAreaPerYearUsd",
+        "pricePerUnitAreaRur",
+        "pricePerUnitAreaRurForSearch",
+        "pricePerUnitAreaUsd",
+        "priceTotal",
+        "priceTotalEur",
+        "priceTotalPerMonth",
+        "priceTotalPerMonthEur",
+        "priceTotalPerMonthRur",
+        "priceTotalPerMonthRurForSearch",
+        "priceTotalPerMonthUsd",
+        "priceTotalRur",
+        "priceTotalRurForSearch",
+        "priceTotalUsd",
+        "projectDeclarationUrl",
+        "promoInfo",
+        "propertyType",
+        "publishTerms",
+        "publishedUserId",
+        "rentByPartsDescription",
+        "repairType",
+        "roomArea",
+        "roomType",
+        "roomsArea",
+        "roomsCount",
+        "roomsForSaleCount",
+        "rosreestrCheck",
+        "separateWcsCount",
+        "settlementName",
+        "shareAmount",
+        "similar",
+        "specialty",
+        "statistic",
+        "status",
+        "taxNumber",
+        "title",
+        "totalArea",
+        "user",
+        "userId",
+        "valueAddedServices",
+        "vasType",
+        "vatPriceTotalPerMonthRur",
+        "vatPriceTotalRur",
+        "videos",
+        "water",
+        "waterCapacity",
+        "waterPipesCount",
+        "waterType",
+        "wcLocationType",
+        "wcType",
+        "windowsViewType",
+        "withoutClientFee",
+        "workTimeInfo"
+      ],
+      "title": "OffersSerialized"
+    },
+    "BargainTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priceRur": {
+          "type": "integer"
+        },
+        "contractType": {
+          "$ref": "#/definitions/DealTypeEnum"
+        },
+        "includedOptions": {
+          "type": "array",
+          "items": {}
+        },
+        "vatPrice": {
+          "type": "number"
+        },
+        "price": {
+          "type": "number"
+        },
+        "vatType": {
+          "$ref": "#/definitions/VatType"
+        },
+        "priceUsd": {
+          "type": "integer"
+        },
+        "vatIncluded": {
+          "type": "boolean"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "vatPrices": {
+          "$ref": "#/definitions/TPrices"
+        },
+        "priceEur": {
+          "type": "integer"
+        },
+        "priceType": {
+          "$ref": "#/definitions/PriceTypeEnum"
+        },
+        "saleType": {
+          "$ref": "#/definitions/AccessTypeEnum"
+        },
+        "mortgageAllowed": {
+          "type": "boolean"
+        },
+        "deposit": {
+          "type": "integer"
+        },
+        "depositPrices": {
+          "$ref": "#/definitions/TPrices"
+        }
+      },
+      "required": [
+        "currency",
+        "includedOptions",
+        "price",
+        "priceEur",
+        "priceRur",
+        "priceType",
+        "priceUsd"
+      ],
+      "title": "BargainTerms"
+    },
+    "TPrices": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rur": {
+          "type": "integer"
+        },
+        "usd": {
+          "type": "integer"
+        },
+        "eur": {
+          "type": "integer"
+        }
+      },
+      "required": ["eur", "rur", "usd"],
+      "title": "TPrices"
+    },
+    "Building": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cranageTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CranageTypeElement"
+          }
+        },
+        "type": {
+          "type": "string"
+        },
+        "buildYear": {
+          "type": "integer"
+        },
+        "liftTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CranageTypeElement"
+          }
+        },
+        "floorsCount": {
+          "type": "integer"
+        },
+        "statusType": {
+          "$ref": "#/definitions/StatusType"
+        },
+        "parking": {
+          "$ref": "#/definitions/Parking"
+        },
+        "houseLineType": {
+          "$ref": "#/definitions/HouseLineType"
+        },
+        "ceilingHeight": {
+          "type": "string"
+        },
+        "conditioningType": {
+          "$ref": "#/definitions/ConditioningTypeEnum"
+        },
+        "infrastructure": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "materialType": {
+          "$ref": "#/definitions/HouseMaterialType"
+        },
+        "totalArea": {
+          "type": "string"
+        },
+        "houseMaterialType": {
+          "$ref": "#/definitions/HouseMaterialType"
+        },
+        "ventilationType": {
+          "$ref": "#/definitions/VentilationType"
+        },
+        "heatingType": {
+          "$ref": "#/definitions/HeatingType"
+        },
+        "extinguishingSystemType": {
+          "$ref": "#/definitions/ExtinguishingSystemType"
+        },
+        "gatesType": {
+          "type": "string"
+        },
+        "shoppingCenterScaleType": {
+          "type": "string"
+        },
+        "classType": {
+          "$ref": "#/definitions/ClassType"
+        },
+        "accessType": {
+          "$ref": "#/definitions/AccessTypeEnum"
+        },
+        "openingHours": {
+          "$ref": "#/definitions/OpeningHours"
+        },
+        "workingDaysType": {
+          "type": "string"
+        },
+        "tenants": {
+          "type": "string"
+        },
+        "developer": {
+          "type": "string"
+        },
+        "conditionRatingType": {
+          "type": "string"
+        }
+      },
+      "required": ["cranageTypes", "liftTypes"],
+      "title": "Building"
+    },
+    "CranageTypeElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "loadCapacity": {
+          "type": "number"
+        },
+        "type": {
+          "$ref": "#/definitions/PurposeTypeEnum"
+        }
+      },
+      "required": ["count", "type"],
+      "title": "CranageTypeElement"
+    },
+    "OpeningHours": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/OpeningHoursType"
+        }
+      },
+      "required": ["type"],
+      "title": "OpeningHours"
+    },
+    "Parking": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/PurpleType"
+        },
+        "isFree": {
+          "type": "boolean"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "purposeType": {
+          "$ref": "#/definitions/PurposeTypeEnum"
+        },
+        "placesCount": {
+          "type": "integer"
+        },
+        "locationType": {
+          "type": "string"
+        },
+        "priceMonthly": {
+          "type": "number"
+        }
+      },
+      "required": [],
+      "title": "Parking"
+    },
+    "BusinessShoppingCenter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fromRepresentative": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "parentName": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer"
+        }
+      },
+      "required": ["fromRepresentative", "id"],
+      "title": "BusinessShoppingCenter"
+    },
+    "DemandJSONQuery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "_type": {
+          "$ref": "#/definitions/TypeEnum"
+        },
+        "office_type": {
+          "$ref": "#/definitions/OfficeType"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        },
+        "total_area": {
+          "$ref": "#/definitions/Price"
+        },
+        "engine_version": {
+          "$ref": "#/definitions/EngineVersion"
+        },
+        "currency": {
+          "$ref": "#/definitions/EngineVersion"
+        },
+        "geo": {
+          "$ref": "#/definitions/DemandJSONQueryGeo"
+        },
+        "region": {
+          "$ref": "#/definitions/OfficeType"
+        }
+      },
+      "required": [
+        "_type",
+        "currency",
+        "engine_version",
+        "office_type",
+        "price",
+        "region",
+        "total_area"
+      ],
+      "title": "DemandJSONQuery"
+    },
+    "DemandJSONQueryGeo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/GeoType"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValueElement"
+          }
+        }
+      },
+      "required": ["type", "value"],
+      "title": "DemandJSONQueryGeo"
+    },
+    "ValueElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/ValueType"
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": ["id", "type"],
+      "title": "ValueElement"
+    },
+    "Price": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/PriceType"
+        },
+        "value": {
+          "$ref": "#/definitions/PriceValue"
+        }
+      },
+      "required": ["type", "value"],
+      "title": "Price"
+    },
+    "PriceValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "gte": {
+          "type": "integer"
+        },
+        "lte": {
+          "type": "integer"
+        }
+      },
+      "required": ["gte", "lte"],
+      "title": "PriceValue"
+    },
+    "Electricity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "possibleToConnect": {
+          "type": "null"
+        },
+        "power": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "locationType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ConditioningTypeEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": ["locationType", "possibleToConnect", "power"],
+      "title": "Electricity"
+    },
+    "Flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "isArchived": {
+          "type": "boolean"
+        }
+      },
+      "required": ["isArchived"],
+      "title": "Flags"
+    },
+    "Garage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "material": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/HouseMaterialType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "type": {
+          "$ref": "#/definitions/GarageType"
+        },
+        "garageType": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": ["garageType", "material", "status", "type"],
+      "title": "Garage"
+    },
+    "OffersSerializedGeo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "highways": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Highway"
+          }
+        },
+        "countryId": {
+          "type": "integer"
+        },
+        "undergrounds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Underground"
+          }
+        },
+        "coordinates": {
+          "$ref": "#/definitions/Coordinates"
+        },
+        "districts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/District"
+          }
+        },
+        "userInput": {
+          "type": "string"
+        },
+        "address": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "locationPath": {
+          "$ref": "#/definitions/LocationPath"
+        },
+        "jk": {
+          "$ref": "#/definitions/Jk"
+        }
+      },
+      "required": [
+        "address",
+        "coordinates",
+        "countryId",
+        "districts",
+        "highways",
+        "locationPath",
+        "undergrounds",
+        "userInput"
+      ],
+      "title": "OffersSerializedGeo"
+    },
+    "Address": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "locationTypeId": {
+          "type": "integer"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/AddressType"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "isFormingAddress": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "fullName",
+        "id",
+        "isFormingAddress",
+        "name",
+        "shortName",
+        "type"
+      ],
+      "title": "Address"
+    },
+    "Coordinates": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      },
+      "required": ["lat", "lng"],
+      "title": "Coordinates"
+    },
+    "District": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locationId": {
+          "type": "integer"
+        },
+        "type": {
+          "$ref": "#/definitions/DistrictType"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "integer"
+        }
+      },
+      "required": ["id", "locationId", "name", "type"],
+      "title": "District"
+    },
+    "Highway": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "distance": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["distance", "id", "name"],
+      "title": "Highway"
+    },
+    "Jk": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "house": {
+          "$ref": "#/definitions/JkHouse"
+        },
+        "fullUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "webSiteUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["http", "https"]
+        },
+        "gaGeo": {
+          "$ref": "#/definitions/GaGeo"
+        },
+        "webSiteUrlUtm": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["http", "https"]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": ["displayName", "id", "name"],
+      "title": "Jk"
+    },
+    "GaGeo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cityId": {
+          "type": "integer"
+        },
+        "moId": {
+          "type": "integer"
+        },
+        "oblId": {
+          "type": "integer"
+        }
+      },
+      "required": ["cityId", "moId", "oblId"],
+      "title": "GaGeo"
+    },
+    "JkHouse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": ["id", "name"],
+      "title": "JkHouse"
+    },
+    "LocationPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "countryId": {
+          "type": "integer"
+        },
+        "childToParent": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": ["childToParent", "countryId"],
+      "title": "LocationPath"
+    },
+    "Underground": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transportType": {
+          "$ref": "#/definitions/TransportType"
+        },
+        "name": {
+          "type": "string"
+        },
+        "underConstruction": {
+          "type": "boolean"
+        },
+        "lineColor": {
+          "$ref": "#/definitions/LineColorUnion"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "lineId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "releaseYear": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "lineColor",
+        "lineId",
+        "name",
+        "transportType",
+        "underConstruction"
+      ],
+      "title": "Underground"
+    },
+    "Land": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "null"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/EstateTypeEnum"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "areaUnitType": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AreaUnitType"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "possibleToChangeStatus": {
+          "type": "null"
+        },
+        "area": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "area",
+        "areaUnitType",
+        "possibleToChangeStatus",
+        "status",
+        "type"
+      ],
+      "title": "Land"
+    },
+    "MonthlyIncome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "income": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": ["currency", "income"],
+      "title": "MonthlyIncome"
+    },
+    "Newbuilding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "showJkReliableFlag": {
+          "type": "boolean"
+        },
+        "isFromDeveloper": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isFromBuilder": {
+          "type": "boolean"
+        },
+        "house": {
+          "$ref": "#/definitions/NewbuildingHouse"
+        },
+        "isFromSeller": {
+          "type": "boolean"
+        },
+        "isReliable": {
+          "type": "boolean"
+        },
+        "newbuildingFeatures": {
+          "$ref": "#/definitions/NewbuildingFeatures"
+        },
+        "id": {
+          "type": "string",
+          "format": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "isFromBuilder",
+        "isFromDeveloper",
+        "isFromSeller",
+        "isReliable",
+        "name",
+        "newbuildingFeatures",
+        "showJkReliableFlag"
+      ],
+      "title": "Newbuilding"
+    },
+    "NewbuildingHouse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "isReliable": {
+          "type": "boolean"
+        },
+        "isFinished": {
+          "type": "boolean"
+        },
+        "finishDate": {
+          "$ref": "#/definitions/FinishDate"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "isFinished", "isReliable", "name"],
+      "title": "NewbuildingHouse"
+    },
+    "FinishDate": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "quarter": {
+          "type": "integer"
+        },
+        "year": {
+          "type": "integer"
+        }
+      },
+      "required": ["quarter", "year"],
+      "title": "FinishDate"
+    },
+    "NewbuildingFeatures": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "imagesCount": {
+          "type": "integer"
+        },
+        "reviewsCount": {
+          "type": "integer"
+        },
+        "deadlineInfo": {
+          "type": "string"
+        },
+        "videosCount": {
+          "type": "integer"
+        },
+        "firstImageUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".jpg"]
+        }
+      },
+      "required": [
+        "deadlineInfo",
+        "firstImageUrl",
+        "imagesCount",
+        "reviewsCount",
+        "videosCount"
+      ],
+      "title": "NewbuildingFeatures"
+    },
+    "Notes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "realtor": {
+          "type": "null"
+        },
+        "offer": {
+          "type": "null"
+        }
+      },
+      "required": ["offer", "realtor"],
+      "title": "Notes"
+    },
+    "Phone": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        }
+      },
+      "required": ["countryCode", "number"],
+      "title": "Phone"
+    },
+    "Photo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "thumbnail2Url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".jpg"]
+        },
+        "coordinates": {
+          "type": "null"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "source": {
+          "type": "null"
+        },
+        "rotateDegree": {
+          "type": "null"
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".jpg"]
+        },
+        "fullUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".jpg"]
+        },
+        "isDefault": {
+          "type": "boolean"
+        },
+        "miniUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".jpg"]
+        }
+      },
+      "required": [
+        "coordinates",
+        "fullUrl",
+        "id",
+        "isDefault",
+        "miniUrl",
+        "rotateDegree",
+        "source",
+        "thumbnail2Url",
+        "thumbnailUrl"
+      ],
+      "title": "Photo"
+    },
+    "Platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "type": {
+          "$ref": "#/definitions/PlatformType"
+        }
+      },
+      "required": ["type", "version"],
+      "title": "Platform"
+    },
+    "PriceChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "changeTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "priceData": {
+          "$ref": "#/definitions/PriceData"
+        }
+      },
+      "required": ["changeTime", "priceData"],
+      "title": "PriceChange"
+    },
+    "PriceData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paymentPeriod": {
+          "type": "null"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency"
+        },
+        "price": {
+          "type": "integer"
+        }
+      },
+      "required": ["currency", "paymentPeriod", "price"],
+      "title": "PriceData"
+    },
+    "PublishTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "autoprolong": {
+          "type": "boolean"
+        },
+        "terms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Term"
+          }
+        }
+      },
+      "required": ["autoprolong", "terms"],
+      "title": "PublishTerms"
+    },
+    "Term": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tariffIdentificator": {
+          "type": "null"
+        },
+        "isCompulsory": {
+          "type": "null"
+        },
+        "days": {
+          "type": "integer"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Service"
+          }
+        },
+        "type": {
+          "$ref": "#/definitions/TermType"
+        },
+        "dynamicPrice": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "required": [
+        "days",
+        "dynamicPrice",
+        "isCompulsory",
+        "services",
+        "tariffIdentificator",
+        "type"
+      ],
+      "title": "Term"
+    },
+    "OffersSerializedSpecialty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "additionalTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "specialties": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SpecialtyElement"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["additionalTypes", "specialties", "types"],
+      "title": "OffersSerializedSpecialty"
+    },
+    "SpecialtyElement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rusName": {
+          "type": "string"
+        },
+        "engName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "required": ["engName", "id", "rusName"],
+      "title": "SpecialtyElement"
+    },
+    "Statistic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "daily": {
+          "type": "integer"
+        }
+      },
+      "required": ["daily", "total"],
+      "title": "Statistic"
+    },
+    "User": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userTrustLevel": {
+          "$ref": "#/definitions/UserTrustLevel"
+        },
+        "agencyName": {
+          "type": "string"
+        },
+        "agentAvailability": {
+          "$ref": "#/definitions/AgentAvailability"
+        },
+        "cianUserId": {
+          "type": "integer"
+        },
+        "isChatsEnabled": {
+          "type": "boolean"
+        },
+        "isSubAgent": {
+          "type": "boolean"
+        },
+        "userType": {
+          "$ref": "#/definitions/UserType"
+        },
+        "isAgent": {
+          "type": "boolean"
+        },
+        "isHidden": {
+          "type": "boolean"
+        },
+        "phoneNumbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Phone"
+          }
+        },
+        "agentAccountType": {
+          "$ref": "#/definitions/AgentAccountType"
+        },
+        "cianProfileStatus": {
+          "$ref": "#/definitions/CianProfileStatus"
+        },
+        "agencyNameV2": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "experience": {
+          "type": "string"
+        },
+        "agentAvatarUrl": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"],
+          "qt-uri-extensions": [".axd"]
+        },
+        "agentReviews": {
+          "$ref": "#/definitions/AgentReviews"
+        }
+      },
+      "required": [
+        "agencyName",
+        "cianUserId",
+        "isAgent",
+        "isChatsEnabled",
+        "isHidden",
+        "isSubAgent",
+        "userTrustLevel",
+        "userType"
+      ],
+      "title": "User"
+    },
+    "AgentAvailability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "availableFrom": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "title": {
+          "type": "string"
+        },
+        "availableTo": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "message": {
+          "$ref": "#/definitions/Message"
+        }
+      },
+      "required": ["available", "userId"],
+      "title": "AgentAvailability"
+    },
+    "AgentReviews": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "totalCount": {
+          "type": "integer"
+        },
+        "approvedReviewsCount": {
+          "type": "integer"
+        },
+        "entityRate": {
+          "type": "number"
+        }
+      },
+      "required": ["approvedReviewsCount", "totalCount"],
+      "title": "AgentReviews"
+    },
+    "ValueAddedServices": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "isPremium": {
+          "type": "boolean"
+        },
+        "isPaid": {
+          "type": "boolean"
+        },
+        "isTop3": {
+          "type": "boolean"
+        },
+        "isColorized": {
+          "type": "boolean"
+        },
+        "isFree": {
+          "type": "boolean"
+        },
+        "isCalltracking": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "isCalltracking",
+        "isColorized",
+        "isFree",
+        "isPaid",
+        "isPremium",
+        "isTop3"
+      ],
+      "title": "ValueAddedServices"
+    },
+    "Video": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": ["https"]
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uploadDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": ["duration", "id", "type", "uploadDate", "url"],
+      "title": "Video"
+    },
+    "SEOData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "noindex": {
+          "type": "boolean"
+        },
+        "h1": {
+          "type": "string"
+        },
+        "metaDescription": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["description", "h1", "metaDescription", "noindex", "title"],
+      "title": "SEOData"
+    },
+    "LineColorUnion": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/LineColorEnum"
+        },
+        {
+          "type": "string",
+          "format": "integer"
+        }
+      ],
+      "title": "LineColorUnion"
+    },
+    "TypeEnum": {
+      "type": "string",
+      "enum": ["commercialsale"],
+      "title": "TypeEnum"
+    },
+    "EngineVersionType": {
+      "type": "string",
+      "enum": ["term"],
+      "title": "EngineVersionType"
+    },
+    "OfficeTypeType": {
+      "type": "string",
+      "enum": ["terms"],
+      "title": "OfficeTypeType"
+    },
+    "AccessTypeEnum": {
+      "type": "string",
+      "enum": ["free", "passSystem"],
+      "title": "AccessTypeEnum"
+    },
+    "DealTypeEnum": {
+      "type": "string",
+      "enum": ["sale", "leaseAssignment"],
+      "title": "DealTypeEnum"
+    },
+    "Currency": {
+      "type": "string",
+      "enum": ["rur", "usd"],
+      "title": "Currency"
+    },
+    "PriceTypeEnum": {
+      "type": "string",
+      "enum": ["all"],
+      "title": "PriceTypeEnum"
+    },
+    "VatType": {
+      "type": "string",
+      "enum": ["included", "usn"],
+      "title": "VatType"
+    },
+    "ClassType": {
+      "type": "string",
+      "enum": ["b", "a", "bPlus", "c", "aPlus"],
+      "title": "ClassType"
+    },
+    "PurposeTypeEnum": {
+      "type": "string",
+      "enum": ["beam", "lift", "telpher", "escalator", "cargo"],
+      "title": "PurposeTypeEnum"
+    },
+    "ExtinguishingSystemType": {
+      "type": "string",
+      "enum": ["alarm", "hydrant", "sprinkler", "powder", "no"],
+      "title": "ExtinguishingSystemType"
+    },
+    "HeatingType": {
+      "type": "string",
+      "enum": ["central", "no", "autonomous"],
+      "title": "HeatingType"
+    },
+    "HouseLineType": {
+      "type": "string",
+      "enum": ["first"],
+      "title": "HouseLineType"
+    },
+    "OpeningHoursType": {
+      "type": "string",
+      "enum": ["specific", "roundTheClock"],
+      "title": "OpeningHoursType"
+    },
+    "PurpleType": {
+      "type": "string",
+      "enum": ["ground", "underground", "multilevel"],
+      "title": "PurpleType"
+    },
+    "StatusType": {
+      "type": "string",
+      "enum": ["operational", "underConstruction"],
+      "title": "StatusType"
+    },
+    "VentilationType": {
+      "type": "string",
+      "enum": ["natural", "forced"],
+      "title": "VentilationType"
+    },
+    "CallTrackingProvider": {
+      "type": "string",
+      "enum": ["mts"],
+      "title": "CallTrackingProvider"
+    },
+    "Category": {
+      "type": "string",
+      "enum": [
+        "freeAppointmentObjectSale",
+        "buildingSale",
+        "garageSale",
+        "officeSale",
+        "warehouseSale",
+        "businessSale",
+        "shoppingAreaSale",
+        "industrySale"
+      ],
+      "title": "Category"
+    },
+    "ConditionType": {
+      "type": "string",
+      "enum": [
+        "typical",
+        "majorRepairsRequired",
+        "office",
+        "design",
+        "cosmeticRepairsRequired",
+        "finishing"
+      ],
+      "title": "ConditionType"
+    },
+    "GeoType": {
+      "type": "string",
+      "enum": ["geo"],
+      "title": "GeoType"
+    },
+    "ValueType": {
+      "type": "string",
+      "enum": ["district", "street", "house", "underground"],
+      "title": "ValueType"
+    },
+    "PriceType": {
+      "type": "string",
+      "enum": ["range"],
+      "title": "PriceType"
+    },
+    "ConditioningTypeEnum": {
+      "type": "string",
+      "enum": ["local", "no", "central"],
+      "title": "ConditioningTypeEnum"
+    },
+    "EstateTypeEnum": {
+      "type": "string",
+      "enum": ["owned", "rent"],
+      "title": "EstateTypeEnum"
+    },
+    "HouseMaterialType": {
+      "type": "string",
+      "enum": ["brick", "monolithBrick", "monolith", "panel"],
+      "title": "HouseMaterialType"
+    },
+    "GarageType": {
+      "type": "string",
+      "enum": ["garage", "parkingPlace"],
+      "title": "GarageType"
+    },
+    "AddressType": {
+      "type": "string",
+      "enum": ["location", "street", "house"],
+      "title": "AddressType"
+    },
+    "DistrictType": {
+      "type": "string",
+      "enum": ["raion", "okrug", "poselenie", "mikroraion"],
+      "title": "DistrictType"
+    },
+    "LineColorEnum": {
+      "type": "string",
+      "enum": [
+        "03238B",
+        "CF0000",
+        "FF7F00",
+        "A2A5B5",
+        "8AD02A",
+        "009BD5",
+        "94007C",
+        "FA6F9E",
+        "00701A",
+        "FFDF00",
+        "DB0A5B",
+        "7ACDCE",
+        "ACBFE3"
+      ],
+      "title": "LineColorEnum"
+    },
+    "TransportType": {
+      "type": "string",
+      "enum": ["walk", "transport"],
+      "title": "TransportType"
+    },
+    "InputType": {
+      "type": "string",
+      "enum": [
+        "separateFromYard",
+        "separateFromStreet",
+        "commonFromYard",
+        "commonFromStreet"
+      ],
+      "title": "InputType"
+    },
+    "AreaUnitType": {
+      "type": "string",
+      "enum": ["hectare", "sotka"],
+      "title": "AreaUnitType"
+    },
+    "Layout": {
+      "type": "string",
+      "enum": ["cabinet", "mixed", "openSpace", "corridorplan"],
+      "title": "Layout"
+    },
+    "OfferType": {
+      "type": "string",
+      "enum": ["commercial"],
+      "title": "OfferType"
+    },
+    "PlacementType": {
+      "type": "string",
+      "enum": ["shoppingMall", "streetRetail"],
+      "title": "PlacementType"
+    },
+    "PlatformType": {
+      "type": "string",
+      "enum": ["webSite", "upload", "ios", "android"],
+      "title": "PlatformType"
+    },
+    "PropertyType": {
+      "type": "string",
+      "enum": ["shoppingArea", "freeAppointment", "building", "office"],
+      "title": "PropertyType"
+    },
+    "Service": {
+      "type": "string",
+      "enum": [
+        "top3",
+        "calltracking",
+        "auction",
+        "premium",
+        "highlight",
+        "paid"
+      ],
+      "title": "Service"
+    },
+    "TermType": {
+      "type": "string",
+      "enum": ["dailyTermless", "periodical", "dailyLimited"],
+      "title": "TermType"
+    },
+    "Status": {
+      "type": "string",
+      "enum": ["published"],
+      "title": "Status"
+    },
+    "AgentAccountType": {
+      "type": "string",
+      "enum": ["specialist", "agency", "managementCompany", "rentDepartment"],
+      "title": "AgentAccountType"
+    },
+    "Message": {
+      "type": "string",
+      "enum": [
+        "Напишите ему или позвоните завтра.",
+        "Напишите ему или позвоните в рабочее время."
+      ],
+      "title": "Message"
+    },
+    "CianProfileStatus": {
+      "type": "string",
+      "enum": ["hide", "approved"],
+      "title": "CianProfileStatus"
+    },
+    "UserTrustLevel": {
+      "type": "string",
+      "enum": ["notInvolved", "involved", "new"],
+      "title": "UserTrustLevel"
+    },
+    "UserType": {
+      "type": "string",
+      "enum": ["realtor_not_commerce", "realtor_based", "realtor_prof"],
+      "title": "UserType"
+    }
+  }
+}
