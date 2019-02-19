@@ -6,11 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "$(npm bin)/prettier --write response.json",
-    "format2": "$(npm bin)/prettier --write response2.json"
+    "format2": "$(npm bin)/prettier --write response2.json",
+    "generate_py": "$(npm bin)/quicktype -s schema cian.json -o data.py",
+    "generate_go": "$(npm bin)/quicktype -s schema cian.json -o model.go"
   },
   "author": "Bazys",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "quicktype": "^15.0.174"
   }
 }

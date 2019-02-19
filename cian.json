@@ -54,25 +54,12 @@
         "offerCount": {
           "type": "integer"
         },
-        "mlRankingModelVersion": {
-          "type": "null"
-        },
-        "kp": {
-          "type": "null"
-        },
-        "avgPriceInformer": {
-          "type": "null"
-        },
         "callButtonVariant": {
           "type": "integer"
         },
         "searchUuid": {
           "type": "string",
           "format": "uuid"
-        },
-        "newobjectsSerialized": {
-          "type": "array",
-          "items": {}
         },
         "offersSerialized": {
           "type": "array",
@@ -86,16 +73,11 @@
       },
       "required": [
         "aggregatedCount",
-        "avgPriceInformer",
         "breadcrumbs",
         "callButtonVariant",
         "isCallButtonEnabled",
         "isNewobjectsEnabled",
         "jsonQuery",
-        "kp",
-        "mlRankingGuid",
-        "mlRankingModelVersion",
-        "newobjectsSerialized",
         "offerCount",
         "offersSerialized",
         "queryString",
@@ -268,7 +250,14 @@
           ]
         },
         "shareAmount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "pricePerUnitAreaPerYearRurForSearch": {
           "anyOf": [
@@ -302,7 +291,14 @@
           ]
         },
         "settlementName": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "title": {
           "anyOf": [
@@ -325,12 +321,19 @@
           ]
         },
         "workTimeInfo": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "minPriceTotal": {
           "anyOf": [
             {
-              "type": "integer"
+              "type": "number"
             },
             {
               "type": "null"
@@ -338,7 +341,14 @@
           ]
         },
         "allFromOffrep": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "platform": {
           "anyOf": [
@@ -361,7 +371,14 @@
           ]
         },
         "electricityPower": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "garage": {
           "anyOf": [
@@ -374,34 +391,83 @@
           ]
         },
         "chatId": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "userId": {
           "type": "integer"
         },
         "priceTotalRur": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "descriptionMinhash": {
           "type": "string"
         },
         "hasPool": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "gaLabel": {
           "type": "string"
         },
         "totalArea": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "leisure": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "pricePerUnitArea": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "separateWcsCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "propertyType": {
           "anyOf": [
@@ -414,16 +480,37 @@
           ]
         },
         "drainageCapacity": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "geo": {
           "$ref": "#/definitions/OffersSerializedGeo"
         },
         "furniture": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "allRoomsArea": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "demandJsonQuery": {
           "$ref": "#/definitions/DemandJSONQuery"
@@ -432,31 +519,101 @@
           "type": "boolean"
         },
         "name": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "notes": {
           "$ref": "#/definitions/Notes"
         },
         "childrenAllowed": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "pricePerUnitAreaPerYearRur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasCheckIn_24": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "minVatPriceTotalPerMonthRur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "demolishedInMoscowProgramm": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "permittedUseType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "agricultural",
+                "businessManagement",
+                "commonUseArea",
+                "highriseBuildings",
+                "hotelAmenities",
+                "individualHousingConstruction",
+                "industry",
+                "lowriseHousing",
+                "publicUseOfCapitalConstruction",
+                "serviceVehicles",
+                "shoppingCenters",
+                "warehouses"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "drainage": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "minVatPriceTotalRur": {
           "anyOf": [
@@ -479,16 +636,44 @@
           ]
         },
         "vasType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotalUsd": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "rosreestrCheck": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasLift": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "phones": {
           "type": "array",
@@ -512,12 +697,19 @@
               "type": "null"
             },
             {
-              "type": "string"
+              "type": "number"
             }
           ]
         },
         "hasInvestmentProject": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "statistic": {
           "anyOf": [
@@ -530,7 +722,14 @@
           ]
         },
         "pricePerUnitAreaUsd": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasTransportServices": {
           "anyOf": [
@@ -543,16 +742,37 @@
           ]
         },
         "pricePerUnitAreaRur": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "category": {
           "$ref": "#/definitions/Category"
         },
         "roomArea": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasShower": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isColorized": {
           "type": "boolean"
@@ -561,7 +781,14 @@
           "type": "boolean"
         },
         "bedroomsCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "minPriceTotalRur": {
           "anyOf": [
@@ -574,10 +801,24 @@
           ]
         },
         "priceTotalPerMonth": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "externalId": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isOccupied": {
           "anyOf": [
@@ -590,58 +831,172 @@
           ]
         },
         "externalUrl": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "qt-uri-protocols": ["https", "http"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasDishwasher": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "booking": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotalEur": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasWiredInternet": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "additionalPhoneLinesAllowed": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isTop3": {
           "type": "boolean"
         },
         "possibleToChangePermittedUseType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotalPerMonthUsd": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "water": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "petsAllowed": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "electricityType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasFridge": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "roomsArea": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "maxArea": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasTransfer": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "publishTerms": {
           "$ref": "#/definitions/PublishTerms"
         },
         "minPriceTotalPerMonth": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isEnabledCallTracking": {
           "anyOf": [
@@ -656,7 +1011,7 @@
         "minPriceTotalRurForSearch": {
           "anyOf": [
             {
-              "type": "integer"
+              "type": "string"
             },
             {
               "type": "null"
@@ -664,7 +1019,14 @@
           ]
         },
         "gasType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasHeating": {
           "anyOf": [
@@ -677,16 +1039,44 @@
           ]
         },
         "cplModeration": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "waterCapacity": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "flatType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasJacuzzi": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "placementType": {
           "anyOf": [
@@ -702,7 +1092,15 @@
           "type": "boolean"
         },
         "gasPressure": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["high", "low", "middle"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasParking": {
           "anyOf": [
@@ -715,7 +1113,14 @@
           ]
         },
         "rentByPartsDescription": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasInternet": {
           "anyOf": [
@@ -728,10 +1133,24 @@
           ]
         },
         "conditionRatingType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "pricePerUnitAreaPerMonthRurForSearch": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "categoriesIds": {
           "type": "array",
@@ -740,19 +1159,54 @@
           }
         },
         "minPriceTotalPerMonthRur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "feedboxMultiOfferKey": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasBathhouse": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasEncumbrances": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "kitchenArea": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isLegalAddressProvided": {
           "anyOf": [
@@ -774,43 +1228,121 @@
           "type": "boolean"
         },
         "pricePerUnitAreaPerMonth": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "windowsViewType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["street", "yard", "yardAndStreet"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasWasher": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "gasCapacity": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "cianId": {
           "type": "integer"
         },
         "withoutClientFee": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "pricePerUnitAreaPerYearEur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "cianUserId": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "phoneLinesCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isRentByParts": {
           "type": "boolean"
         },
         "loggiasCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasSecurity": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "pricePerUnitAreaPerYearUsd": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isCustoms": {
           "anyOf": [
@@ -839,13 +1371,27 @@
           ]
         },
         "gas": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "specialty": {
           "$ref": "#/definitions/OffersSerializedSpecialty"
         },
         "pricePerUnitAreaPerYear": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "photos": {
           "type": "array",
@@ -864,10 +1410,24 @@
           ]
         },
         "roomsForSaleCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isPenthouse": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasEquipment": {
           "anyOf": [
@@ -903,14 +1463,29 @@
           "format": "date-time"
         },
         "priceTotalPerMonthEur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "objectGuid": {
           "type": "string",
           "format": "uuid"
         },
         "wcLocationType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["indoors", "outdoors"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasLight": {
           "anyOf": [
@@ -933,43 +1508,122 @@
           ]
         },
         "repairType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["cosmetic", "design", "euro", "no"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "valueAddedServices": {
           "$ref": "#/definitions/ValueAddedServices"
         },
         "hasSecondedDocs": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "dealType": {
           "$ref": "#/definitions/DealTypeEnum"
         },
         "similar": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasDrainage": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotalRurForSearch": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotalPerMonthRur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasKitchenFurniture": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isByHomeowner": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasTv": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "drivewayType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["asphalt", "ground", "no"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "minPriceTotalPerMonthRurForSearch": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "jkUrl": {
           "anyOf": [
@@ -979,18 +1633,40 @@
             {
               "type": "string",
               "format": "uri",
-              "qt-uri-protocols": ["https"]
+              "qt-uri-protocols": ["https", "http"]
             }
           ]
         },
         "layoutPhoto": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "decoration": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "enum": ["fine", "rough", "without"]
+            }
+          ]
         },
         "hasTeaCoffeeSugar": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasElectricity": {
           "anyOf": [
@@ -1003,7 +1679,14 @@
           ]
         },
         "pricePerUnitAreaEur": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "callTrackingProvider": {
           "anyOf": [
@@ -1026,10 +1709,24 @@
           ]
         },
         "hasBathtub": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasWifi": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "conditionType": {
           "anyOf": [
@@ -1042,10 +1739,24 @@
           ]
         },
         "waterType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasGarage": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "canParts": {
           "anyOf": [
@@ -1058,7 +1769,14 @@
           ]
         },
         "hasExcursions": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "accessType": {
           "anyOf": [
@@ -1077,10 +1795,24 @@
           "type": "integer"
         },
         "pricePerUnitAreaPerMonthRur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasGas": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "estateType": {
           "anyOf": [
@@ -1093,13 +1825,35 @@
           ]
         },
         "projectDeclarationUrl": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isApartments": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasIron": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasWater": {
           "anyOf": [
@@ -1135,7 +1889,14 @@
           "type": "string"
         },
         "priceTotalPerMonthRurForSearch": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isInHiddenBase": {
           "anyOf": [
@@ -1148,7 +1909,14 @@
           ]
         },
         "pricePerUnitAreaRurForSearch": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "monthlyIncome": {
           "anyOf": [
@@ -1161,7 +1929,14 @@
           ]
         },
         "district": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "user": {
           "$ref": "#/definitions/User"
@@ -1170,7 +1945,14 @@
           "$ref": "#/definitions/BargainTerms"
         },
         "fromDeveloper": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "hasSafeCustody": {
           "anyOf": [
@@ -1183,7 +1965,14 @@
           ]
         },
         "balconiesCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "building": {
           "$ref": "#/definitions/Building"
@@ -1199,13 +1988,27 @@
           ]
         },
         "livingArea": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "publishedUserId": {
           "type": "integer"
         },
         "bedsCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "waterPipesCount": {
           "anyOf": [
@@ -1218,31 +2021,87 @@
           ]
         },
         "vatPriceTotalPerMonthRur": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "wcType": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "kp": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "flags": {
           "$ref": "#/definitions/Flags"
         },
         "hasRamp": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "promoInfo": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "roomsCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotal": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "combinedWcsCount": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isPro": {
           "type": "boolean"
@@ -1475,26 +2334,65 @@
       "additionalProperties": false,
       "properties": {
         "priceRur": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "contractType": {
           "$ref": "#/definitions/DealTypeEnum"
         },
         "includedOptions": {
-          "type": "array",
-          "items": {}
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["operationalCosts", "utilityCharges "]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "IncludedOptions"
         },
         "vatPrice": {
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "price": {
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "vatType": {
           "$ref": "#/definitions/VatType"
         },
         "priceUsd": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "vatIncluded": {
           "type": "boolean"
@@ -1506,7 +2404,14 @@
           "$ref": "#/definitions/TPrices"
         },
         "priceEur": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceType": {
           "$ref": "#/definitions/PriceTypeEnum"
@@ -1575,7 +2480,14 @@
           }
         },
         "floorsCount": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "statusType": {
           "$ref": "#/definitions/StatusType"
@@ -1605,7 +2517,14 @@
           "$ref": "#/definitions/HouseMaterialType"
         },
         "totalArea": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "houseMaterialType": {
           "$ref": "#/definitions/HouseMaterialType"
@@ -1683,10 +2602,25 @@
       "additionalProperties": false,
       "properties": {
         "type": {
-          "$ref": "#/definitions/PurpleType"
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["ground", "multilevel", "open", "roof", "underground"]
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isFree": {
-          "type": "boolean"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "currency": {
           "$ref": "#/definitions/Currency"
@@ -1695,13 +2629,34 @@
           "$ref": "#/definitions/PurposeTypeEnum"
         },
         "placesCount": {
-          "type": "integer"
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "locationType": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceMonthly": {
-          "type": "number"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [],
@@ -1831,7 +2786,7 @@
       "additionalProperties": false,
       "properties": {
         "possibleToConnect": {
-          "type": "null"
+          "type": "boolean"
         },
         "power": {
           "anyOf": [
@@ -1878,7 +2833,8 @@
               "type": "null"
             },
             {
-              "type": "string"
+              "type": "string",
+              "enum": ["byProxy", "cooperative", "ownership"]
             }
           ]
         },
@@ -1901,12 +2857,13 @@
               "type": "null"
             },
             {
-              "type": "string"
+              "type": "string",
+              "enum": ["builtIn", "capital", "samostroy", "shell"]
             }
           ]
         }
       },
-      "required": ["garageType", "material", "status", "type"],
+      "required": [],
       "title": "Garage"
     },
     "OffersSerializedGeo": {
@@ -2074,7 +3031,7 @@
         "fullUrl": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"]
+          "qt-uri-protocols": ["https", "http"]
         },
         "webSiteUrl": {
           "type": "string",
@@ -2187,54 +3144,75 @@
       "title": "Underground"
     },
     "Land": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "status": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            },
+            "type": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/EstateTypeEnum"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "areaUnitType": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/AreaUnitType"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "possibleToChangeStatus": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            },
+            "area": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "number"
+                }
+              ]
+            }
+          },
+          "required": [
+            "area",
+            "areaUnitType",
+            "possibleToChangeStatus",
+            "status",
+            "type"
+          ],
+          "title": "Land"
+        },
+        {
           "type": "null"
-        },
-        "type": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/EstateTypeEnum"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "areaUnitType": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/AreaUnitType"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "possibleToChangeStatus": {
-          "type": "null"
-        },
-        "area": {
-          "anyOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string"
-            }
-          ]
         }
-      },
-      "required": [
-        "area",
-        "areaUnitType",
-        "possibleToChangeStatus",
-        "status",
-        "type"
-      ],
-      "title": "Land"
+      ]
     },
     "MonthlyIncome": {
       "type": "object",
@@ -2358,7 +3336,7 @@
         "firstImageUrl": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"],
+          "qt-uri-protocols": ["https", "http"],
           "qt-uri-extensions": [".jpg"]
         }
       },
@@ -2376,10 +3354,24 @@
       "additionalProperties": false,
       "properties": {
         "realtor": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "offer": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         }
       },
       "required": ["offer", "realtor"],
@@ -2406,31 +3398,53 @@
         "thumbnail2Url": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"],
+          "qt-uri-protocols": ["https", "http"],
           "qt-uri-extensions": [".jpg"]
         },
         "coordinates": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "lat": {
+                  "type": "number"
+                },
+                "lng": {
+                  "type": "number"
+                }
+              },
+              "required": ["lat", "lng"],
+              "title": "Coordinates"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "id": {
           "type": "integer"
         },
         "source": {
-          "type": "null"
-        },
-        "rotateDegree": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "thumbnailUrl": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"],
+          "qt-uri-protocols": ["https", "http"],
           "qt-uri-extensions": [".jpg"]
         },
         "fullUrl": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"],
+          "qt-uri-protocols": ["https", "http"],
           "qt-uri-extensions": [".jpg"]
         },
         "isDefault": {
@@ -2439,7 +3453,7 @@
         "miniUrl": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"],
+          "qt-uri-protocols": ["https", "http"],
           "qt-uri-extensions": [".jpg"]
         }
       },
@@ -2449,7 +3463,6 @@
         "id",
         "isDefault",
         "miniUrl",
-        "rotateDegree",
         "source",
         "thumbnail2Url",
         "thumbnailUrl"
@@ -2497,7 +3510,14 @@
       "additionalProperties": false,
       "properties": {
         "paymentPeriod": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "currency": {
           "$ref": "#/definitions/Currency"
@@ -2531,10 +3551,24 @@
       "additionalProperties": false,
       "properties": {
         "tariffIdentificator": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "integer"
+            }
+          ]
         },
         "isCompulsory": {
-          "type": "null"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
         },
         "days": {
           "type": "integer"
@@ -2688,7 +3722,7 @@
         "agentAvatarUrl": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"],
+          "qt-uri-protocols": ["https", "http"],
           "qt-uri-extensions": [".axd"]
         },
         "agentReviews": {
@@ -2792,7 +3826,7 @@
         "url": {
           "type": "string",
           "format": "uri",
-          "qt-uri-protocols": ["https"]
+          "qt-uri-protocols": ["https", "http"]
         },
         "duration": {
           "type": "integer"
@@ -2873,22 +3907,28 @@
     },
     "Currency": {
       "type": "string",
-      "enum": ["rur", "usd"],
+      "enum": ["rur", "usd", "eur"],
       "title": "Currency"
     },
     "PriceTypeEnum": {
       "type": "string",
-      "enum": ["all"],
+      "enum": ["all", "hectare", "sotka", "squareMeter"],
       "title": "PriceTypeEnum"
     },
     "VatType": {
       "type": "string",
-      "enum": ["included", "usn"],
+      "enum": [
+        "included",
+        "notIncluded",
+        "usn",
+        "vatIncluded",
+        "vatNotIncluded"
+      ],
       "title": "VatType"
     },
     "ClassType": {
       "type": "string",
-      "enum": ["b", "a", "bPlus", "c", "aPlus"],
+      "enum": ["b", "a", "bPlus", "c", "aPlus", "bMinus"],
       "title": "ClassType"
     },
     "PurposeTypeEnum": {
@@ -2946,7 +3986,8 @@
         "warehouseSale",
         "businessSale",
         "shoppingAreaSale",
-        "industrySale"
+        "industrySale",
+        "flatRent"
       ],
       "title": "Category"
     },
@@ -2989,12 +4030,12 @@
     },
     "HouseMaterialType": {
       "type": "string",
-      "enum": ["brick", "monolithBrick", "monolith", "panel"],
+      "enum": ["brick", "monolithBrick", "monolith", "panel", "metal"],
       "title": "HouseMaterialType"
     },
     "GarageType": {
       "type": "string",
-      "enum": ["garage", "parkingPlace"],
+      "enum": ["box", "garage", "parkingPlace"],
       "title": "GarageType"
     },
     "AddressType": {

@@ -1,0 +1,43 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "format",
+      "type": "shell",
+      "command": "$(npm bin)/prettier --write response.json",
+      "windows": {
+        "command": "iex '$(npm bin)/prettier.cmd --write response.json'"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "format2",
+      "type": "shell",
+      "command": "$(npm bin)/prettier --write response2.json",
+      "windows": {
+        "command": "iex '$(npm bin)/prettier.cmd --write response2.json'"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "generate for python",
+      "type": "shell",
+      "command": "$(npm bin)/quicktype -s schema cian.json -o data.py",
+      "windows": {
+        "command": "iex '$(npm bin)/quicktype -s schema cian.json -o data.py'"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "generate for go",
+      "type": "shell",
+      "command": "$(npm bin)/quicktype -s schema cian.json -o model.go",
+      "windows": {
+        "command": "iex '$(npm bin)/quicktype -s schema cian.json -o model.go'"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

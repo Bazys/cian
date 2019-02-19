@@ -246,3 +246,6 @@ Temporary Items
 # website: http://jupyter.org/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
+
+# Project generated files
+output.txt

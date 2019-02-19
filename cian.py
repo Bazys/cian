@@ -1,6 +1,6 @@
 import requests
 import json
-from data import cian_from_dict
+from data import data_from_dict
 
 
 headers = {
@@ -22,6 +22,9 @@ data = {'region': {'type': 'terms',
 response = requests.post(
     'https://volgograd.cian.ru/cian-api/mobile-site/v2/search-offers/', headers=headers, data=json.dumps(data))
 
-result = cian_from_dict(response.json())
+with open("output.txt", "w") as text_file:
+    print(response.text, file=text_file)
+
+result = data_from_dict(response.json())
 
 print(result.data.offers_serialized)
