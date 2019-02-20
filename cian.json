@@ -160,7 +160,14 @@
         "value": {
           "type": "array",
           "items": {
-            "type": "integer"
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         }
       },
@@ -355,7 +362,7 @@
         "allFromOffrep": {
           "anyOf": [
             {
-              "type": "number"
+              "$ref": "#/definitions/AllFromOffrep"
             },
             {
               "type": "null"
@@ -525,7 +532,14 @@
           ]
         },
         "demandJsonQuery": {
-          "$ref": "#/definitions/DemandJSONQuery"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DemandJSONQuery"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "isPaid": {
           "type": "boolean"
@@ -541,7 +555,14 @@
           ]
         },
         "notes": {
-          "$ref": "#/definitions/Notes"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/Notes"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "childrenAllowed": {
           "anyOf": [
@@ -709,7 +730,8 @@
               "type": "null"
             },
             {
-              "type": "number"
+              "type": "string",
+              "format": "number"
             }
           ]
         },
@@ -930,7 +952,59 @@
         "water": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "possibleToConnect": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "capacity": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "locationType": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ConditioningTypeEnum"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "type": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "autonomous",
+                        "central",
+                        "pumpingStation",
+                        "waterIntakeFacility",
+                        "waterTower"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": ["locationType", "possibleToConnect", "capacity"],
+              "title": "Water"
             },
             {
               "type": "null"
@@ -1023,7 +1097,7 @@
         "minPriceTotalRurForSearch": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "number"
             },
             {
               "type": "null"
@@ -2348,6 +2422,20 @@
       ],
       "title": "OffersSerialized"
     },
+    "AllFromOffrep": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": ["count", "url"],
+      "title": "AllFromOffrep"
+    },
     "BargainTerms": {
       "type": "object",
       "additionalProperties": false,
@@ -2670,7 +2758,7 @@
         "priceMonthly": {
           "anyOf": [
             {
-              "type": "string"
+              "type": "number"
             },
             {
               "type": "null"
@@ -2805,7 +2893,14 @@
       "additionalProperties": false,
       "properties": {
         "possibleToConnect": {
-          "type": "boolean"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "power": {
           "anyOf": [
@@ -3134,7 +3229,7 @@
           "type": "boolean"
         },
         "lineColor": {
-          "$ref": "#/definitions/LineColorUnion"
+          "type": "string"
         },
         "time": {
           "type": "integer"
@@ -3220,7 +3315,8 @@
                   "type": "null"
                 },
                 {
-                  "type": "number"
+                  "type": "string",
+                  "format": "number"
                 }
               ]
             }
@@ -3893,18 +3989,6 @@
       "required": ["description", "h1", "metaDescription", "noindex", "title"],
       "title": "SEOData"
     },
-    "LineColorUnion": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/LineColorEnum"
-        },
-        {
-          "type": "string",
-          "format": "integer"
-        }
-      ],
-      "title": "LineColorUnion"
-    },
     "TypeEnum": {
       "type": "string",
       "enum": ["commercialsale"],
@@ -3917,7 +4001,7 @@
     },
     "OfficeTypeType": {
       "type": "string",
-      "enum": ["terms"],
+      "enum": ["terms", "range"],
       "title": "OfficeTypeType"
     },
     "AccessTypeEnum": {
@@ -3953,12 +4037,12 @@
     },
     "ClassType": {
       "type": "string",
-      "enum": ["b", "a", "bPlus", "c", "aPlus", "bMinus"],
+      "enum": ["a", "aPlus", "b", "bPlus", "bMinus", "c"],
       "title": "ClassType"
     },
     "PurposeTypeEnum": {
       "type": "string",
-      "enum": ["beam", "lift", "telpher", "escalator", "cargo"],
+      "enum": ["beam", "lift", "telpher", "escalator", "cargo", "passenger"],
       "title": "PurposeTypeEnum"
     },
     "ExtinguishingSystemType": {
@@ -3973,7 +4057,7 @@
     },
     "HouseLineType": {
       "type": "string",
-      "enum": ["first"],
+      "enum": ["first", "second", "other"],
       "title": "HouseLineType"
     },
     "OpeningHoursType": {
@@ -3988,12 +4072,12 @@
     },
     "StatusType": {
       "type": "string",
-      "enum": ["operational", "underConstruction"],
+      "enum": ["operational", "underConstruction", "project"],
       "title": "StatusType"
     },
     "VentilationType": {
       "type": "string",
-      "enum": ["natural", "forced"],
+      "enum": ["natural", "forced", "no"],
       "title": "VentilationType"
     },
     "CallTrackingProvider": {
@@ -4045,7 +4129,7 @@
     },
     "ConditioningTypeEnum": {
       "type": "string",
-      "enum": ["local", "no", "central"],
+      "enum": ["local", "no", "central", "border", "location"],
       "title": "ConditioningTypeEnum"
     },
     "EstateTypeEnum": {
@@ -4072,25 +4156,6 @@
       "type": "string",
       "enum": ["raion", "okrug", "poselenie", "mikroraion"],
       "title": "DistrictType"
-    },
-    "LineColorEnum": {
-      "type": "string",
-      "enum": [
-        "03238B",
-        "CF0000",
-        "FF7F00",
-        "A2A5B5",
-        "8AD02A",
-        "009BD5",
-        "94007C",
-        "FA6F9E",
-        "00701A",
-        "FFDF00",
-        "DB0A5B",
-        "7ACDCE",
-        "ACBFE3"
-      ],
-      "title": "LineColorEnum"
     },
     "TransportType": {
       "type": "string",
@@ -4134,7 +4199,16 @@
     },
     "PropertyType": {
       "type": "string",
-      "enum": ["shoppingArea", "freeAppointment", "building", "office"],
+      "enum": [
+        "shoppingArea",
+        "freeAppointment",
+        "building",
+        "office",
+        "garage",
+        "industry",
+        "land",
+        "warehouse"
+      ],
       "title": "PropertyType"
     },
     "Service": {
@@ -4174,7 +4248,7 @@
     },
     "CianProfileStatus": {
       "type": "string",
-      "enum": ["hide", "approved"],
+      "enum": ["hide", "approved", "request"],
       "title": "CianProfileStatus"
     },
     "UserTrustLevel": {

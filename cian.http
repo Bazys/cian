@@ -1,0 +1,11 @@
+POST https://www.cian.ru/cian-api/mobile-site/v2/search-offers/ HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+    "region":{"type": "terms","value": [1,4593]},
+    "category": {"type": "terms", "value":["commercialLandSale"]},
+    "_type": "commercialsale",
+    "engine_version": {"type": "term", "value": 2},
+    "page": {"type": "term","value": 1}
+}
