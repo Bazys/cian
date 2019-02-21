@@ -1,11 +1,37 @@
-POST https://www.cian.ru/cian-api/mobile-site/v2/search-offers/ HTTP/1.1
+POST https://api.cian.ru/search-offers/v2/search-offers-desktop/ HTTP/1.1
 Accept: application/json
-Content-Type: application/json
+Content-Type: text/plain;charset=UTF-8
+Origin: null
+DNT: 1
 
 {
-    "region":{"type": "terms","value": [1,4593]},
-    "category": {"type": "terms", "value":["commercialLandSale"]},
-    "_type": "commercialsale",
-    "engine_version": {"type": "term", "value": 2},
-    "page": {"type": "term","value": 1}
+    "jsonQuery": {
+        "region":
+        {"type": "terms",
+         "value": [1]
+         },
+        "category": {"type": "terms", "value": ["commercialLandSale", "buildingSale", "officeSale", "freeAppointmentObjectSale", "shoppingAreaSale"]},
+        "_type": "commercialsale",
+        "engine_version": {
+            "type": "term",
+            "value": 2
+        },
+        "page": {
+            "type": "term",
+            "value": 1
+        }
+    }
 }
+
+## Content-Type: text/plain;charset=UTF-8
+## Content-Type: application/json
+## "category": {"type": "terms", "value":["commercialLandSale"]},
+## "category": {"type": "terms", "value": ["commercialLandSale"]},
+# "office_type": {
+#     "type": "terms",
+#     "value": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+# },
+
+######
+GET https://www.cian.ru/cian-api/site/v1/get-regions/ HTTP/1.1
+Accept: application/json

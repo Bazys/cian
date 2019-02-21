@@ -40,7 +40,14 @@
           "type": "boolean"
         },
         "isCallButtonEnabled": {
-          "type": "boolean"
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
         },
         "mlRankingGuid": {
           "type": "string",
@@ -52,6 +59,9 @@
             "$ref": "#/definitions/Breadcrumb"
           }
         },
+        "fullUrl": {
+          "type": "string"
+        },
         "top3IsOn": {
           "type": "boolean"
         },
@@ -59,9 +69,6 @@
           "$ref": "#/definitions/SEOData"
         },
         "offerCount": {
-          "type": "integer"
-        },
-        "callButtonVariant": {
           "type": "integer"
         },
         "searchUuid": {
@@ -87,16 +94,12 @@
       "required": [
         "aggregatedCount",
         "breadcrumbs",
-        "callButtonVariant",
-        "isCallButtonEnabled",
-        "isNewobjectsEnabled",
         "jsonQuery",
         "offerCount",
         "offersSerialized",
         "queryString",
         "seoData",
-        "suggestionsQuery",
-        "top3IsOn"
+        "suggestionsQuery"
       ],
       "title": "Data"
     },
@@ -127,7 +130,14 @@
           "$ref": "#/definitions/TypeEnum"
         },
         "office_type": {
-          "$ref": "#/definitions/OfficeType"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/OfficeType"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "engine_version": {
           "$ref": "#/definitions/EngineVersion"
@@ -135,6 +145,23 @@
       },
       "required": ["_type", "engine_version", "office_type", "region"],
       "title": "JSONQuery"
+    },
+    "CategoryClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/OfficeTypeType"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Category"
+          }
+        }
+      },
+      "required": ["type", "value"],
+      "title": "CategoryClass"
     },
     "EngineVersion": {
       "type": "object",
@@ -409,16 +436,6 @@
             }
           ]
         },
-        "chatId": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
         "userId": {
           "type": "integer"
         },
@@ -432,9 +449,6 @@
             }
           ]
         },
-        "descriptionMinhash": {
-          "type": "string"
-        },
         "hasPool": {
           "anyOf": [
             {
@@ -444,9 +458,6 @@
               "type": "null"
             }
           ]
-        },
-        "gaLabel": {
-          "type": "string"
         },
         "totalArea": {
           "anyOf": [
@@ -525,16 +536,6 @@
           "anyOf": [
             {
               "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "demandJsonQuery": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/DemandJSONQuery"
             },
             {
               "type": "null"
@@ -943,6 +944,62 @@
           "anyOf": [
             {
               "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gas": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "possibleToConnect": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "capacity": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "locationType": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/ConditioningTypeEnum"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "pressureType": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": ["high", "low", "middle"]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": ["locationType", "possibleToConnect", "capacity"],
+              "title": "Gas"
             },
             {
               "type": "null"
@@ -1463,16 +1520,6 @@
             }
           ]
         },
-        "gas": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
         "specialty": {
           "$ref": "#/definitions/OffersSerializedSpecialty"
         },
@@ -1552,8 +1599,15 @@
           ]
         },
         "editDate": {
-          "type": "string",
-          "format": "date-time"
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "priceTotalPerMonthEur": {
           "anyOf": [
@@ -2201,6 +2255,11 @@
         }
       },
       "required": [
+        "id",
+        "cianId",
+        "cianUserId",
+        "user",
+        "userId",
         "accessType",
         "added",
         "additionalPhoneLinesAllowed",
@@ -2219,26 +2278,20 @@
         "canParts",
         "categoriesIds",
         "category",
-        "chatId",
         "childrenAllowed",
-        "cianId",
-        "cianUserId",
         "combinedWcsCount",
         "conditionRatingType",
         "conditionType",
         "cplModeration",
         "dealType",
         "decoration",
-        "demandJsonQuery",
         "demolishedInMoscowProgramm",
         "description",
-        "descriptionMinhash",
         "district",
         "drainage",
         "drainageCapacity",
         "drainageType",
         "drivewayType",
-        "editDate",
         "electricity",
         "electricityPower",
         "electricityType",
@@ -2246,84 +2299,19 @@
         "externalId",
         "externalUrl",
         "feedboxMultiOfferKey",
-        "flags",
         "flatType",
         "floorMaterialType",
         "floorNumber",
         "fromDeveloper",
         "furniture",
         "furniturePresence",
-        "gaLabel",
         "garage",
         "gas",
         "gasCapacity",
         "gasPressure",
         "gasType",
         "geo",
-        "hasBathhouse",
-        "hasBathtub",
-        "hasCheckIn_24",
-        "hasConditioner",
-        "hasDishwasher",
-        "hasDrainage",
-        "hasElectricity",
-        "hasEncumbrances",
-        "hasEquipment",
-        "hasExcursions",
-        "hasExtinguishingSystem",
-        "hasFridge",
-        "hasFurniture",
-        "hasGarage",
-        "hasGas",
-        "hasHairdryer",
-        "hasHeating",
-        "hasInternet",
-        "hasInvestmentProject",
-        "hasIron",
-        "hasJacuzzi",
-        "hasKitchenFurniture",
-        "hasLift",
-        "hasLight",
-        "hasParking",
-        "hasPhone",
-        "hasPool",
-        "hasRamp",
-        "hasSafeCustody",
-        "hasSecondedDocs",
-        "hasSecurity",
-        "hasShopWindows",
-        "hasShower",
-        "hasTeaCoffeeSugar",
-        "hasTransfer",
-        "hasTransportServices",
-        "hasTv",
-        "hasWasher",
-        "hasWater",
-        "hasWifi",
-        "hasWiredInternet",
-        "id",
         "inputType",
-        "isApartments",
-        "isAuction",
-        "isByHomeowner",
-        "isColorized",
-        "isCustoms",
-        "isDuplicatedDescription",
-        "isEnabledCallTracking",
-        "isFairplay",
-        "isFavorite",
-        "isFromBuilder",
-        "isHiddenByUser",
-        "isInHiddenBase",
-        "isLegalAddressProvided",
-        "isNew",
-        "isOccupied",
-        "isPaid",
-        "isPenthouse",
-        "isPremium",
-        "isRentByParts",
-        "isTop3",
-        "jkUrl",
         "kitchenArea",
         "kp",
         "land",
@@ -2346,7 +2334,6 @@
         "name",
         "newbuilding",
         "notes",
-        "objectGuid",
         "offerType",
         "permittedUseType",
         "petsAllowed",
@@ -2383,7 +2370,6 @@
         "projectDeclarationUrl",
         "promoInfo",
         "propertyType",
-        "publishTerms",
         "publishedUserId",
         "rentByPartsDescription",
         "repairType",
@@ -2403,9 +2389,6 @@
         "taxNumber",
         "title",
         "totalArea",
-        "user",
-        "userId",
-        "valueAddedServices",
         "vasType",
         "vatPriceTotalPerMonthRur",
         "vatPriceTotalRur",
@@ -2673,7 +2656,7 @@
           "type": "string"
         }
       },
-      "required": ["cranageTypes", "liftTypes"],
+      "required": [],
       "title": "Building"
     },
     "CranageTypeElement": {
@@ -2788,63 +2771,6 @@
       },
       "required": ["fromRepresentative", "id"],
       "title": "BusinessShoppingCenter"
-    },
-    "DemandJSONQuery": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "_type": {
-          "$ref": "#/definitions/TypeEnum"
-        },
-        "office_type": {
-          "$ref": "#/definitions/OfficeType"
-        },
-        "price": {
-          "$ref": "#/definitions/Price"
-        },
-        "total_area": {
-          "$ref": "#/definitions/Price"
-        },
-        "engine_version": {
-          "$ref": "#/definitions/EngineVersion"
-        },
-        "currency": {
-          "$ref": "#/definitions/EngineVersion"
-        },
-        "geo": {
-          "$ref": "#/definitions/DemandJSONQueryGeo"
-        },
-        "region": {
-          "$ref": "#/definitions/OfficeType"
-        }
-      },
-      "required": [
-        "_type",
-        "currency",
-        "engine_version",
-        "office_type",
-        "price",
-        "region",
-        "total_area"
-      ],
-      "title": "DemandJSONQuery"
-    },
-    "DemandJSONQueryGeo": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "$ref": "#/definitions/GeoType"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ValueElement"
-          }
-        }
-      },
-      "required": ["type", "value"],
-      "title": "DemandJSONQueryGeo"
     },
     "ValueElement": {
       "type": "object",
@@ -3030,7 +2956,6 @@
         "countryId",
         "districts",
         "highways",
-        "locationPath",
         "undergrounds",
         "userInput"
       ],
@@ -3059,17 +2984,17 @@
           "type": "string"
         },
         "isFormingAddress": {
-          "type": "boolean"
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
-      "required": [
-        "fullName",
-        "id",
-        "isFormingAddress",
-        "name",
-        "shortName",
-        "type"
-      ],
+      "required": ["fullName", "id", "name", "shortName", "type"],
       "title": "Address"
     },
     "Coordinates": {
@@ -3385,20 +3310,10 @@
           "$ref": "#/definitions/NewbuildingFeatures"
         },
         "id": {
-          "type": "string",
-          "format": "integer"
+          "type": "integer"
         }
       },
-      "required": [
-        "id",
-        "isFromBuilder",
-        "isFromDeveloper",
-        "isFromSeller",
-        "isReliable",
-        "name",
-        "newbuildingFeatures",
-        "showJkReliableFlag"
-      ],
+      "required": ["id", "name"],
       "title": "Newbuilding"
     },
     "NewbuildingHouse": {
@@ -3802,7 +3717,8 @@
           "$ref": "#/definitions/AgentAvailability"
         },
         "cianUserId": {
-          "type": "integer"
+          "type": "string",
+          "format": "integer"
         },
         "isChatsEnabled": {
           "type": "boolean"
@@ -3850,16 +3766,7 @@
           "$ref": "#/definitions/AgentReviews"
         }
       },
-      "required": [
-        "agencyName",
-        "cianUserId",
-        "isAgent",
-        "isChatsEnabled",
-        "isHidden",
-        "isSubAgent",
-        "userTrustLevel",
-        "userType"
-      ],
+      "required": ["cianUserId", "userTrustLevel"],
       "title": "User"
     },
     "AgentAvailability": {
@@ -4096,7 +4003,8 @@
         "businessSale",
         "shoppingAreaSale",
         "industrySale",
-        "flatRent"
+        "flatRent",
+        "commercialLandSale"
       ],
       "title": "Category"
     },
@@ -4149,7 +4057,16 @@
     },
     "AddressType": {
       "type": "string",
-      "enum": ["location", "street", "house"],
+      "enum": [
+        "location",
+        "street",
+        "house",
+        "raion",
+        "okrug",
+        "poselenie",
+        "mikroraion",
+        "metro"
+      ],
       "title": "AddressType"
     },
     "DistrictType": {
