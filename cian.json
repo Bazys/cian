@@ -542,9 +542,6 @@
             }
           ]
         },
-        "isPaid": {
-          "type": "boolean"
-        },
         "name": {
           "anyOf": [
             {
@@ -809,12 +806,6 @@
             }
           ]
         },
-        "isColorized": {
-          "type": "boolean"
-        },
-        "isHiddenByUser": {
-          "type": "boolean"
-        },
         "bedroomsCount": {
           "anyOf": [
             {
@@ -926,9 +917,6 @@
               "type": "null"
             }
           ]
-        },
-        "isTop3": {
-          "type": "boolean"
         },
         "possibleToChangePermittedUseType": {
           "anyOf": [
@@ -1295,12 +1283,6 @@
             }
           ]
         },
-        "categoriesIds": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
-        },
         "minPriceTotalPerMonthRur": {
           "anyOf": [
             {
@@ -1366,9 +1348,6 @@
           "items": {
             "$ref": "#/definitions/Video"
           }
-        },
-        "isFavorite": {
-          "type": "boolean"
         },
         "pricePerUnitAreaPerMonth": {
           "anyOf": [
@@ -2026,9 +2005,6 @@
             }
           ]
         },
-        "isPremium": {
-          "type": "boolean"
-        },
         "added": {
           "type": "string"
         },
@@ -2249,160 +2225,9 @@
               "type": "null"
             }
           ]
-        },
-        "isPro": {
-          "type": "boolean"
         }
       },
-      "required": [
-        "id",
-        "cianId",
-        "cianUserId",
-        "user",
-        "userId",
-        "accessType",
-        "added",
-        "additionalPhoneLinesAllowed",
-        "allFromOffrep",
-        "allRoomsArea",
-        "archivedDate",
-        "availableFrom",
-        "balconiesCount",
-        "bargainTerms",
-        "bedroomsCount",
-        "bedsCount",
-        "booking",
-        "building",
-        "businessShoppingCenter",
-        "callTrackingProvider",
-        "canParts",
-        "categoriesIds",
-        "category",
-        "childrenAllowed",
-        "combinedWcsCount",
-        "conditionRatingType",
-        "conditionType",
-        "cplModeration",
-        "dealType",
-        "decoration",
-        "demolishedInMoscowProgramm",
-        "description",
-        "district",
-        "drainage",
-        "drainageCapacity",
-        "drainageType",
-        "drivewayType",
-        "electricity",
-        "electricityPower",
-        "electricityType",
-        "estateType",
-        "externalId",
-        "externalUrl",
-        "feedboxMultiOfferKey",
-        "flatType",
-        "floorMaterialType",
-        "floorNumber",
-        "fromDeveloper",
-        "furniture",
-        "furniturePresence",
-        "garage",
-        "gas",
-        "gasCapacity",
-        "gasPressure",
-        "gasType",
-        "geo",
-        "inputType",
-        "kitchenArea",
-        "kp",
-        "land",
-        "layout",
-        "layoutPhoto",
-        "leisure",
-        "livingArea",
-        "loggiasCount",
-        "maxArea",
-        "minArea",
-        "minPriceTotal",
-        "minPriceTotalPerMonth",
-        "minPriceTotalPerMonthRur",
-        "minPriceTotalPerMonthRurForSearch",
-        "minPriceTotalRur",
-        "minPriceTotalRurForSearch",
-        "minVatPriceTotalPerMonthRur",
-        "minVatPriceTotalRur",
-        "monthlyIncome",
-        "name",
-        "newbuilding",
-        "notes",
-        "offerType",
-        "permittedUseType",
-        "petsAllowed",
-        "phoneLinesCount",
-        "phones",
-        "photos",
-        "placementType",
-        "platform",
-        "possibleToChangePermittedUseType",
-        "priceChanges",
-        "pricePerUnitArea",
-        "pricePerUnitAreaEur",
-        "pricePerUnitAreaPerMonth",
-        "pricePerUnitAreaPerMonthRur",
-        "pricePerUnitAreaPerMonthRurForSearch",
-        "pricePerUnitAreaPerYear",
-        "pricePerUnitAreaPerYearEur",
-        "pricePerUnitAreaPerYearRur",
-        "pricePerUnitAreaPerYearRurForSearch",
-        "pricePerUnitAreaPerYearUsd",
-        "pricePerUnitAreaRur",
-        "pricePerUnitAreaRurForSearch",
-        "pricePerUnitAreaUsd",
-        "priceTotal",
-        "priceTotalEur",
-        "priceTotalPerMonth",
-        "priceTotalPerMonthEur",
-        "priceTotalPerMonthRur",
-        "priceTotalPerMonthRurForSearch",
-        "priceTotalPerMonthUsd",
-        "priceTotalRur",
-        "priceTotalRurForSearch",
-        "priceTotalUsd",
-        "projectDeclarationUrl",
-        "promoInfo",
-        "propertyType",
-        "publishedUserId",
-        "rentByPartsDescription",
-        "repairType",
-        "roomArea",
-        "roomType",
-        "roomsArea",
-        "roomsCount",
-        "roomsForSaleCount",
-        "rosreestrCheck",
-        "separateWcsCount",
-        "settlementName",
-        "shareAmount",
-        "similar",
-        "specialty",
-        "statistic",
-        "status",
-        "taxNumber",
-        "title",
-        "totalArea",
-        "vasType",
-        "vatPriceTotalPerMonthRur",
-        "vatPriceTotalRur",
-        "videos",
-        "water",
-        "waterCapacity",
-        "waterPipesCount",
-        "waterType",
-        "wcLocationType",
-        "wcType",
-        "windowsViewType",
-        "withoutClientFee",
-        "workTimeInfo"
-      ],
+      "required": ["id", "cianId", "cianUserId"],
       "title": "OffersSerialized"
     },
     "AllFromOffrep": {
