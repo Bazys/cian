@@ -1,0 +1,10 @@
+GET https://realty.yandex.ru/gate/react-page/get/?_format=react&nosplash=1&utm_source=wizard&utm_campaign=common&from=wizard.complex&commercialType=OFFICE&commercialType=RETAIL&commercialType=PUBLIC_CATERING&commercialType=FREE_PURPOSE&page=2&rgid=202930&type=SELL&category=COMMERCIAL&_pageType=search&_providers=react-search-results-data HTTP/1.1
+Host: realty.yandex.ru
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Accept: application/json
+DNT: 1
+X-Requested-With: XMLHttpRequest
+Accept-Encoding: gzip, deflate, br
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7
