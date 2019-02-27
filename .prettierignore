@@ -1,0 +1,7 @@
+package-lock.json
+package.json
+.vscode/
+.ng_build
+www/
+scripts/
+node_modules/

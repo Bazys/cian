@@ -42,7 +42,7 @@ func main() {
 	}
 	defer client.Disconnect(ctx)
 	db := client.Database("cian")
-	cian := db.Collection("cian")
+	cian := db.Collection("offers")
 	res, err := cian.InsertOne(context.Background(), bson.M{"hello": "world"})
 	if err != nil {
 		panic(err)

@@ -225,6 +225,9 @@
             }
           ]
         },
+        "addedTimestamp": {
+          "type": "integer"
+        },
         "newbuilding": {
           "anyOf": [
             {
@@ -1613,6 +1616,13 @@
             }
           ]
         },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "humanizedTimedelta": {
+          "type": "string"
+        },
         "hasLight": {
           "anyOf": [
             {
@@ -2997,14 +3007,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "id",
-        "lineColor",
-        "lineId",
-        "name",
-        "transportType",
-        "underConstruction"
-      ],
+      "required": ["id", "lineColor", "lineId", "name", "transportType", "underConstruction"],
       "title": "Underground"
     },
     "Land": {
@@ -3071,13 +3074,7 @@
               ]
             }
           },
-          "required": [
-            "area",
-            "areaUnitType",
-            "possibleToChangeStatus",
-            "status",
-            "type"
-          ],
+          "required": ["area", "areaUnitType", "possibleToChangeStatus", "status", "type"],
           "title": "Land"
         },
         {
@@ -3201,13 +3198,7 @@
           "qt-uri-extensions": [".jpg"]
         }
       },
-      "required": [
-        "deadlineInfo",
-        "firstImageUrl",
-        "imagesCount",
-        "reviewsCount",
-        "videosCount"
-      ],
+      "required": ["deadlineInfo", "firstImageUrl", "imagesCount", "reviewsCount", "videosCount"],
       "title": "NewbuildingFeatures"
     },
     "Notes": {
@@ -3662,14 +3653,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "isCalltracking",
-        "isColorized",
-        "isFree",
-        "isPaid",
-        "isPremium",
-        "isTop3"
-      ],
+      "required": ["isCalltracking", "isColorized", "isFree", "isPaid", "isPremium", "isTop3"],
       "title": "ValueAddedServices"
     },
     "Video": {
@@ -3758,13 +3742,7 @@
     },
     "VatType": {
       "type": "string",
-      "enum": [
-        "included",
-        "notIncluded",
-        "usn",
-        "vatIncluded",
-        "vatNotIncluded"
-      ],
+      "enum": ["included", "notIncluded", "usn", "vatIncluded", "vatNotIncluded"],
       "title": "VatType"
     },
     "ClassType": {
@@ -3882,16 +3860,7 @@
     },
     "AddressType": {
       "type": "string",
-      "enum": [
-        "location",
-        "street",
-        "house",
-        "raion",
-        "okrug",
-        "poselenie",
-        "mikroraion",
-        "metro"
-      ],
+      "enum": ["location", "street", "house", "raion", "okrug", "poselenie", "mikroraion", "metro"],
       "title": "AddressType"
     },
     "DistrictType": {
@@ -3906,12 +3875,7 @@
     },
     "InputType": {
       "type": "string",
-      "enum": [
-        "separateFromYard",
-        "separateFromStreet",
-        "commonFromYard",
-        "commonFromStreet"
-      ],
+      "enum": ["separateFromYard", "separateFromStreet", "commonFromYard", "commonFromStreet"],
       "title": "InputType"
     },
     "AreaUnitType": {
@@ -3955,14 +3919,7 @@
     },
     "Service": {
       "type": "string",
-      "enum": [
-        "top3",
-        "calltracking",
-        "auction",
-        "premium",
-        "highlight",
-        "paid"
-      ],
+      "enum": ["top3", "calltracking", "auction", "premium", "highlight", "paid"],
       "title": "Service"
     },
     "TermType": {
@@ -3982,10 +3939,7 @@
     },
     "Message": {
       "type": "string",
-      "enum": [
-        "Напишите ему или позвоните завтра.",
-        "Напишите ему или позвоните в рабочее время."
-      ],
+      "enum": ["Напишите ему или позвоните завтра.", "Напишите ему или позвоните в рабочее время."],
       "title": "Message"
     },
     "CianProfileStatus": {

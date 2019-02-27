@@ -1,27 +1,37 @@
 POST https://api.cian.ru/search-offers/v2/search-offers-desktop/ HTTP/1.1
 Accept: application/json
-Content-Type: text/plain;charset=UTF-8
+Content-Type: application/json
 Origin: null
 DNT: 1
 
 {
-    "jsonQuery": {
-        "region":
-        {"type": "terms",
-         "value": [1]
-         },
-        "category": {"type": "terms", "value": ["commercialLandSale", "buildingSale", "officeSale", "freeAppointmentObjectSale", "shoppingAreaSale"]},
-        "_type": "commercialsale",
-        "engine_version": {
-            "type": "term",
-            "value": 2
-        },
-        "page": {
-            "type": "term",
-            "value": 1
-        }
-    }
-}
+"jsonQuery": {
+      "category": {
+        "type": "terms",
+        "value": [
+          "commercialLandSale",
+          "buildingSale",
+          "officeSale",
+          "freeAppointmentObjectSale",
+          "shoppingAreaSale"
+        ]
+      },
+      "region": {
+        "type": "terms",
+        "value": [
+          4704
+        ]
+      },
+      "_type": "commercialsale",
+      "engine_version": {
+        "type": "term",
+        "value": 2
+      },
+      "page": {
+        "type": "term",
+        "value": 1
+      }
+    }}
 
 ## Content-Type: text/plain;charset=UTF-8
 ## Content-Type: application/json
@@ -35,3 +45,10 @@ DNT: 1
 ######
 GET https://www.cian.ru/cian-api/site/v1/get-regions/ HTTP/1.1
 Accept: application/json
+
+
+###
+OPTIONS https://api.cian.ru/search-offers/v2/search-offers-desktop/ HTTP/1.1
+
+###
+GET https://www.cian.ru/cian-api/mobile-site/v1/get-region-cities/?regionId=4565 HTTP/1.1
